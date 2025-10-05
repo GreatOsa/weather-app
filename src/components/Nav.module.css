@@ -1,0 +1,31 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    width: 95%;
+}
+
+
+
+/* For the dropdown */
+/* From Uiverse.io by gksckt */
+.navdropdown {
+
+    display: flex;
+    gap: .6rem;
+    align-items: center;
+    background-color: #444141;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    padding: .3rem .6rem;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
+}
+
+.navdropdown img {
+    /* margin: 0 .3rem; */
+}
