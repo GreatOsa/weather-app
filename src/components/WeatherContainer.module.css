@@ -60,12 +60,10 @@
     font-size: 6rem;
 }
 
-.sideContainer {
+.HourlyForecast {
     grid-column: 15 / -1;
     grid-row: 1 / -1;
-    background-color: var(--Neutral-800);
-    border-radius: 1.5rem;
-    height: 100%;
+
 }
 
 .weatherIcon {
@@ -118,7 +116,7 @@
 
 }
 
-.forecastContainer {
+.DailyforecastContainer {
 
     grid-row: 4/ 5;
     grid-column: 1 / 15;

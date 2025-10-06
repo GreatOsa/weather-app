@@ -1,0 +1,46 @@
+.HourlyForecastTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container {
+    padding: 1rem;
+    background-color: var(--Neutral-800);
+    border-radius: 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.hourForecastList {
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+}
+
+.hourlyList {
+    background-color: var(--Neutral-600);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-radius: .6rem;
+    /* flex-direction: cs; */
+}
+
+.imgAndTime {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    font-size: 1.4rem;
+}
+
+
+
+
+.imgAndTime img {
+    width: 50px;
+    height: auto;
+}
