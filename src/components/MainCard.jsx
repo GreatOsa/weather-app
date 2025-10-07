@@ -1,11 +1,18 @@
+import { formatDate } from "../FormatDate";
 import styles from "./WeatherContainer.module.css";
 
-export function MainCard() {
+export default function MainCard({ weather }) {
+  console.log(weather);
   return (
     <div className={styles.mainCard}>
       <div className={styles.countryAndDate}>
-        <p className={styles.countryText}>Berlin, Germany</p>
-        <p className={styles.dateText}>Tuesday, Aug 5, 2000 </p>
+        <p className={styles.countryText}>
+          {weather?.location?.name}, {weather?.location?.country}
+        </p>
+        <p className={styles.dateText}>
+          {formatDate(weather?.location?.localtime.split(" ")[0])}
+          {/* ,{" "}{weather?.location?.localtime.split(" ")[0]} */}
+        </p>
       </div>
       <div className={styles.temperature}>
         <img
@@ -13,7 +20,7 @@ export function MainCard() {
           src="/public/images/icon-sunny.webp"
           alt="Sunny"
         />
-        <h1>21°</h1>
+        <h1>{weather?.current?.temp_c}°F</h1>
       </div>
     </div>
   );

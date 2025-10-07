@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 1.5rem;
 }
 
 .container {
@@ -11,7 +12,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: .8rem;
 }
 
 .hourForecastList {
@@ -24,8 +25,10 @@
     background-color: var(--Neutral-600);
     display: flex;
     align-items: center;
+    flex-grow: 1;
     justify-content: space-between;
-    padding: 1rem;
+    /* padding: .7rem; */
+
     border-radius: .6rem;
     /* flex-direction: cs; */
 }
