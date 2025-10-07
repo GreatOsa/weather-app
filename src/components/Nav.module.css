@@ -5,7 +5,7 @@
     /* padding:  2rem; */
     padding-top: 1.5rem;
     width: 100%;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 
@@ -27,3 +27,5 @@
     letter-spacing: 1px;
     border: none;
 }
+
+@media (max-width:500px) {}

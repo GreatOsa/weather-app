@@ -6,44 +6,51 @@
 }
 
 .container {
-    padding: 1rem;
+    padding: 2rem;
     background-color: var(--Neutral-800);
     border-radius: 1rem;
-    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: .8rem;
+    gap: 0.8rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: visible;
+    /* allow natural expansion */
+    height: auto;
+    /* don’t constrain height */
 }
 
 .hourForecastList {
     display: flex;
     flex-direction: column;
-    gap: .7rem;
+    gap: 0.7rem;
+    width: 100%;
+    height: auto;
+    /* let it expand based on content */
+    overflow: visible;
+    /* prevent internal scroll */
 }
 
 .hourlyList {
     background-color: var(--Neutral-600);
     display: flex;
     align-items: center;
-    flex-grow: 1;
     justify-content: space-between;
-    /* padding: .7rem; */
-
-    border-radius: .6rem;
-    /* flex-direction: cs; */
+    padding: 0.6rem 1rem;
+    border-radius: 0.6rem;
+    flex-shrink: 0;
+    /* prevents squishing in flex parent */
 }
 
 .imgAndTime {
     display: flex;
     align-items: center;
-    gap: .6rem;
+    gap: 0.6rem;
     font-size: 1.4rem;
 }
 
-
-
-
 .imgAndTime img {
-    width: 50px;
+    width: 3.2rem;
     height: auto;
+    flex-shrink: 0;
 }

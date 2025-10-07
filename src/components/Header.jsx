@@ -1,6 +1,12 @@
+// import { useState } from "react";
 import styles from "./Header.module.css";
 
-export default function Header() {
+export default function Header({ dispatch, input, setInput }) {
+  const handleSubmit = () => {
+    if (input.trim() !== "") {
+      dispatch({ type: "Submit", payload: input.trim() });
+    }
+  };
   return (
     <header>
       <h1>How's the sky looking today?</h1>
@@ -14,9 +20,13 @@ export default function Header() {
         <input
           type="search"
           placeholder="Search for a place..."
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
           className={styles.input}
         />
-        <button className={styles.searchButton}>Search</button>
+        <button onClick={handleSubmit} className={styles.searchButton}>
+          Search
+        </button>
       </div>
     </header>
   );

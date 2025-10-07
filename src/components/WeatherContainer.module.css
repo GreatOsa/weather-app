@@ -1,20 +1,24 @@
 .weatherContainer {
-
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-    display: grid;
     width: 100%;
+    display: grid;
     grid-template-columns: repeat(20, minmax(auto, 1fr));
-    grid-template-rows: 45vh 100px auto 180px;
-    /* gap: 1.8rem; */
+    grid-template-rows: 50vh auto auto auto;
+    /* Let rows grow naturally */
     row-gap: 1.5rem;
     column-gap: 1.8rem;
-    overflow-x: hidden;
+
+    align-items: start;
+    justify-content: center;
+
+    min-height: 100vh;
+    /* still fills screen if content is short */
+
+    /* Prevent layout issues */
+    box-sizing: border-box;
+    overflow: visible;
+    /* allow normal browser scrolling */
+    padding-bottom: 2rem;
+    /* optional breathing space at bottom */
 }
 
 .mainCard {
@@ -64,6 +68,9 @@
     grid-column: 15 / -1;
     grid-row: 1 / -1;
 
+    /* height: 100%; */
+    /* padding: 3rem; */
+    /* margin-bottom: 2rem; */
 }
 
 .weatherIcon {
@@ -86,6 +93,7 @@
     background-color: var(--Neutral-800);
     width: 100%;
     height: 100%;
+    /* max-width: fit-content; */
     border-radius: .6rem;
     padding: 1rem;
 
@@ -116,12 +124,15 @@
 
 }
 
-.DailyforecastContainer {
+.dailySection {
 
     grid-row: 4/ 5;
     grid-column: 1 / 15;
     width: 100%;
     height: 100%;
+}
+
+.DailyforecastContainer {
     display: flex;
     justify-content: space-between;
     gap: 1.2rem;
@@ -151,4 +162,78 @@
 .forecastCard img {
     max-width: 50px;
     height: auto;
+}
+
+@media (max-width: 700px) {
+    .weatherContainer {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-rows: 50vh repeat(3, auto);
+    }
+
+    .HourlyForecast,
+    .container1,
+    .dailySection,
+    .mainCard {
+        grid-column: 1/-1;
+        grid-row: unset;
+    }
+
+    .container1 {
+        grid-row: 2/3;
+    }
+
+    .dailySection {
+        grid-row: 3/4;
+    }
+
+    .HourlyForecast {
+        grid-row: 4/-1;
+        height: 100%;
+    }
+
+    .container1 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns */
+        grid-template-rows: repeat(2, 1fr);
+        /* 2 rows */
+        gap: 1rem;
+        /* space between boxes */
+        width: inherit;
+        height: 100%;
+        /* padding: 1rem; */
+    }
+
+    .container1 .temperatureInfo {
+        border-radius: 10px;
+        padding: 1rem;
+        /* max-width: 80%; */
+    }
+
+    .DailyforecastContainer {
+        /* width: 90%; */
+        display: flex;
+        flex-wrap: wrap;
+        /* wrap into next line */
+        justify-content: space-between;
+        /* even spacing */
+        gap: 1rem;
+    }
+
+    .forecastCard {
+        flex: 1 1 calc(33.333% - 1rem);
+        /* two per row */
+        border-radius: 10px;
+        height: 16rem;
+
+
+        padding: 1rem;
+
+    }
+
+    .forecastCard:last-child {
+        max-width: 10rem;
+    }
+
+
 }

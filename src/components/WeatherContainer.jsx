@@ -1,17 +1,16 @@
 import MainCard from "./MainCard";
 import { DailyforecastContainer } from "./DailyforecastContainer";
-import { WeatherBigContainer } from "./WeatherBigContainer";
+// import { WeatherBigContainer } from "./WeatherBigContainer";
 import styles from "./WeatherContainer.module.css";
 import HourlyForecast from "./weather/HourlyForecast";
 
-export default function WeatherContainer({ weather, formatDate }) {
+export default function WeatherContainer({ weather, formatDate, status }) {
   return (
     <div className={styles.weatherContainer}>
       {/* this contain the country , date with temp */}
-      <MainCard weather={weather} formatDate={formatDate} />
+      <MainCard weather={weather} formatDate={formatDate} status={status} />
       {/* side container */}
       <HourlyForecast weather={weather} />
-
       <div className={`${styles.container1}`}>
         <div className={styles.temperatureInfo}>
           <p className={styles.tempName}>Feels like</p>
@@ -30,8 +29,10 @@ export default function WeatherContainer({ weather, formatDate }) {
           <p className={styles.tempDeg}>{weather?.current?.precip_mm}</p>
         </div>
       </div>
-      <p>Daily forecast</p>
-      <DailyforecastContainer weather={weather} />
+      <section className={styles.dailySection}>
+        <h3>Daily forecast</h3>
+        <DailyforecastContainer weather={weather} />
+      </section>
     </div>
   );
 }

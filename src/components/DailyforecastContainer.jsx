@@ -13,7 +13,7 @@ export function DailyforecastContainer({ weather }) {
 
   const nextWeek = getNextWeek(weather);
 
-  console.log(nextWeek);
+  // console.log(nextWeek);
 
   return (
     <div className={styles.DailyforecastContainer}>

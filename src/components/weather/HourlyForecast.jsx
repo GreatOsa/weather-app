@@ -2,21 +2,23 @@ import React from "react";
 import styles from "../WeatherContainer.module.css";
 import nav from "../Nav.module.css";
 import "./HourlyForecast.css";
+// import { getTime } from "../../FormatDate";
 
 export default function HourlyForecast({ weather }) {
-  const getNextEightHours = (weatherData) => {
+  const getNextEightHours = (weatherData, localtime) => {
     const hours = weatherData?.forecast?.forecastday?.[0]?.hour || [];
-    const currentHour = new Date().getHours();
-
+    const currentHour = new Date(localtime).getHours();
     const nextHours = hours.filter((hourObj) => {
       const hour = new Date(hourObj.time).getHours();
       return hour >= currentHour && hour < currentHour + 8;
     });
-
     return nextHours;
   };
 
-  const nextEightHours = getNextEightHours(weather);
+  const nextEightHours = getNextEightHours(
+    weather,
+    weather?.location?.localtime
+  );
 
   return (
     <div className={`${styles.HourlyForecast} container`}>
